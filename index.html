@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTANA RH SOLUÇÕES - Recrutamento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            color: #2c3e50;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a2a4f, #0d1b33);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 span {
+            color: #ffd700;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Seção Serviços */
+        .servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card .emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a2a4f;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Seção Diferenciais */
+        .diferenciais {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .diferenciais h2 {
+            color: #1a2a4f;
+            margin-bottom: 30px;
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .difer-item {
+            padding: 20px;
+        }
+
+        .difer-item .emoji {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .difer-item h4 {
+            font-size: 18px;
+            color: #1a2a4f;
+        }
+
+        /* Seção Contato */
+        .contato {
+            background: linear-gradient(135deg, #1a2a4f, #0d1b33);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contato h2 {
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #0d1b33;
+            color: white;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SANTANA <span>RH SOLUÇÕES</span></h1>
+        <p>📢 Recrutamento Rápido e Eficiente para sua Empresa</p>
+    </div>
+
+    <div class="container">
+        <!-- Serviços -->
+        <div class="servicos">
+            <div class="card">
+                <div class="emoji">📢</div>
+                <h3>Anúncio de Vagas</h3>
+                <p>Divulgamos suas oportunidades para os melhores talentos do mercado.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">📄</div>
+                <h3>Triagem de Currículos</h3>
+                <p>Selecionamos os candidatos mais alinhados com o seu perfil.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">🎯</div>
+                <h3>Entrevistas</h3>
+                <p>Realizamos entrevistas por competências para avaliar os melhores.</p>
+            </div>
+        </div>
+
+        <!-- Diferenciais -->
+        <div class="diferenciais">
+            <h2>✨ Nossos Diferenciais</h2>
+            <div class="diferenciais-grid">
+                <div class="difer-item">
+                    <span class="emoji">⚡</span>
+                    <h4>Agilidade no Processo</h4>
+                </div>
+                <div class="difer-item">
+                    <span class="emoji">🎯</span>
+                    <h4>Foco em Resultados</h4>
+                </div>
+                <div class="difer-item">
+                    <span class="emoji">🤝</span>
+                    <h4>Confiança e Profissionalismo</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vagas em Destaque -->
+        <div class="diferenciais" style="background: #e8f0fe;">
+            <h2>📢 Vagas em Destaque</h2>
+            <p style="margin-bottom: 20px;">Acesse nosso painel de vagas ou envie seu currículo para futuras oportunidades.</p>
+            <a href="#" class="whatsapp-btn" style="background: #1a2a4f;">🔍 Ver Vagas</a>
+        </div>
+
+        <!-- Contato -->
+        <div class="contato">
+            <h2>📞 Entre em Contato</h2>
+            <p>📱 WhatsApp: <strong>(81) 99576-4118</strong></p>
+            <p>📧 E-mail: contato@santanarh.com.br</p>
+            <a href="https://wa.me/5581995764118" target="_blank" class="whatsapp-btn">💬 Falar no WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 SANTANA RH SOLUÇÕES - Recrutamento Rápido e Eficiente</p>
+        <p>Conectamos talentos às melhores oportunidades com agilidade e precisão.</p>
+    </div>
+</body>
+  </html>
