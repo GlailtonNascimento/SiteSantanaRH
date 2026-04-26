@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTANA RH - Vagas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            color: #2c3e50;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a2a4f, #0d1b33);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 span {
+            color: #ffd700;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .btn-voltar {
+            background: #ffd700;
+            color: #1a2a4f;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .btn-voltar:hover {
+            background: #e6c200;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #1a2a4f;
+            margin-bottom: 40px;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ffd700;
+            margin: 10px auto 0;
+        }
+
+        /* Lista de Vagas */
+        .vagas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .vaga-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .vaga-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vaga-header {
+            background: #1a2a4f;
+            color: white;
+            padding: 20px;
+        }
+
+        .vaga-header h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .vaga-header .tipo {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .vaga-body {
+            padding: 20px;
+        }
+
+        .vaga-info {
+            margin-bottom: 15px;
+        }
+
+        .vaga-info p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .vaga-info strong {
+            color: #1a2a4f;
+        }
+
+        .btn-candidatar {
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-candidatar:hover {
+            background: #1da854;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #0d1b33;
+            color: white;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .vagas-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SANTANA <span>RH SOLUÇÕES</span></h1>
+        <p>📢 Confira nossas vagas disponíveis</p>
+        <a href="index.html" class="btn-voltar">← Voltar para Home</a>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">📋 Vagas em Destaque</h2>
+        
+        <div class="vagas-grid" id="vagasGrid">
+            <!-- Vagas serão carregadas via JavaScript -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 SANTANA RH SOLUÇÕES - Recrutamento Rápido e Eficiente</p>
+        <p>Conectamos talentos às melhores oportunidades com agilidade e precisão.</p>
+    </div>
+
+    <script>
+        // Banco de vagas (simulado - depois integra com planilha)
+        const vagas = [
+            {
+                titulo: "Coordenador(a) de RH",
+                tipo: "CLT | Especialista",
+                local: "Recife, PE",
+                salario: "A combinar",
+                descricao: "Buscamos profissional com experiência em gestão de pessoas e processos de RH."
+            },
+            {
+                titulo: "Analista de Recursos Humanos",
+                tipo: "CLT | Pleno",
+                local: "Recife, PE",
+                salario: "R$ 3.500 - R$ 4.500",
+                descricao: "Atuar no recrutamento e seleção, treinamento e desenvolvimento."
+            },
+            {
+                titulo: "Auxiliar de Departamento Pessoal",
+                tipo: "CLT | Júnior",
+                local: "Recife, PE",
+                salario: "R$ 2.000 - R$ 2.500",
+                descricao: "Suporte nas rotinas de DP, admissão, férias, rescisão."
+            }
+        ];
+
+        function carregarVagas() {
+            const grid = document.getElementById('vagasGrid');
+            grid.innerHTML = '';
+            
+            vagas.forEach((vaga, index) => {
+                const card = document.createElement('div');
+                card.className = 'vaga-card';
+                card.innerHTML = `
+                    <div class="vaga-header">
+                        <h3>${vaga.titulo}</h3>
+                        <span class="tipo">${vaga.tipo}</span>
+                    </div>
+                    <div class="vaga-body">
+                        <div class="vaga-info">
+                            <p>📍 <strong>Local:</strong> ${vaga.local}</p>
+                            <p>💰 <strong>Salário:</strong> ${vaga.salario}</p>
+                            <p>📋 <strong>Descrição:</strong> ${vaga.descricao}</p>
+                        </div>
+                        <button class="btn-candidatar" onclick="candidatar(${index})">📝 Candidatar-se</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function candidatar(index) {
+            // Redirecionar para página de candidatura com a vaga selecionada
+            window.location.href = `candidato.html?vaga=${encodeURIComponent(vagas[index].titulo)}`;
+        }
+
+        carregarVagas();
+    </script>
+</body>
+  </html>
