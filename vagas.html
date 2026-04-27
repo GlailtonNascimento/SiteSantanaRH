@@ -18,7 +18,6 @@
             color: #2c3e50;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, #1a2a4f, #0d1b33);
             color: white;
@@ -57,7 +56,6 @@
             background: #e6c200;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -80,7 +78,6 @@
             margin: 10px auto 0;
         }
 
-        /* Lista de Vagas */
         .vagas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -120,10 +117,6 @@
             padding: 20px;
         }
 
-        .vaga-info {
-            margin-bottom: 15px;
-        }
-
         .vaga-info p {
             margin: 8px 0;
             color: #555;
@@ -150,7 +143,6 @@
             background: #1da854;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 30px;
@@ -178,10 +170,7 @@
 
     <div class="container">
         <h2 class="section-title">📋 Vagas em Destaque</h2>
-        
-        <div class="vagas-grid" id="vagasGrid">
-            <!-- Vagas serão carregadas via JavaScript -->
-        </div>
+        <div class="vagas-grid" id="vagasGrid"></div>
     </div>
 
     <div class="footer">
@@ -190,28 +179,31 @@
     </div>
 
     <script>
-        // Banco de vagas (simulado - depois integra com planilha)
+        // Vagas (com flag que indica se exige pretensão salarial)
         const vagas = [
             {
                 titulo: "Coordenador(a) de RH",
                 tipo: "CLT | Especialista",
                 local: "Recife, PE",
                 salario: "A combinar",
-                descricao: "Buscamos profissional com experiência em gestão de pessoas e processos de RH."
+                descricao: "Buscamos profissional com experiência em gestão de pessoas e processos de RH.",
+                exigePretensao: true
             },
             {
                 titulo: "Analista de Recursos Humanos",
                 tipo: "CLT | Pleno",
                 local: "Recife, PE",
                 salario: "R$ 3.500 - R$ 4.500",
-                descricao: "Atuar no recrutamento e seleção, treinamento e desenvolvimento."
+                descricao: "Atuar no recrutamento e seleção, treinamento e desenvolvimento.",
+                exigePretensao: false
             },
             {
                 titulo: "Auxiliar de Departamento Pessoal",
                 tipo: "CLT | Júnior",
                 local: "Recife, PE",
                 salario: "R$ 2.000 - R$ 2.500",
-                descricao: "Suporte nas rotinas de DP, admissão, férias, rescisão."
+                descricao: "Suporte nas rotinas de DP, admissão, férias, rescisão.",
+                exigePretensao: false
             }
         ];
 
@@ -241,11 +233,15 @@
         }
 
         function candidatar(index) {
-            // Redirecionar para página de candidatura com a vaga selecionada
-            window.location.href = `candidato.html?vaga=${encodeURIComponent(vagas[index].titulo)}`;
+            const vaga = vagas[index];
+            let url = `candidato.html?vaga=${encodeURIComponent(vaga.titulo)}`;
+            if (vaga.exigePretensao) {
+                url += `&exige_pretensao=1`;
+            }
+            window.location.href = url;
         }
 
         carregarVagas();
     </script>
 </body>
-  </html>
+</html>
