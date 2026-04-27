@@ -170,7 +170,6 @@
             display: inline-block;
             margin-top: 10px;
             font-weight: bold;
-            border: none;
         }
 
         .btn-candidatar:hover {
@@ -276,7 +275,7 @@
 
     <!-- IMAGEM DESTAQUE -->
     <div class="imagem-destaque">
-        <img src="santanarh.png" alt="SANTANA RH SOLUÇÕES">
+        <img src="imagem/santanarh.png" alt="SANTANA RH SOLUÇÕES">
     </div>
 
     <div class="container">
@@ -343,7 +342,7 @@
     </div>
 
     <script>
-        // Contador de visitas simples (localStorage)
+        // Contador de visitas
         if (localStorage.getItem('visitasSantanaRH')) {
             let visitas = parseInt(localStorage.getItem('visitasSantanaRH')) + 1;
             localStorage.setItem('visitasSantanaRH', visitas);
@@ -353,17 +352,15 @@
             document.getElementById('contador').innerText = 1;
         }
 
-        // Vagas lidas do Google Sheets (integração futura)
-        // Por enquanto, dados de exemplo
+        // Vagas (integração futura com Google Sheets)
         const vagasExemplo = [
             { titulo: "Coordenador(a) de RH", local: "Recife, PE", tipo: "CLT | Especialista", salario: "A combinar", link_externo: "", status: "Ativa" },
             { titulo: "Analista de Recursos Humanos", local: "Recife, PE", tipo: "CLT | Pleno", salario: "R$ 3.500 - R$ 4.500", link_externo: "", status: "Ativa" },
-            { titulo: "Vaga Externo - LinkedIn", local: "Remoto", tipo: "PJ", salario: "A combinar", link_externo: "https://www.linkedin.com/jobs", status: "Ativa" }
+            { titulo: "Vaga Externa - LinkedIn", local: "Remoto", tipo: "PJ", salario: "A combinar", link_externo: "https://www.linkedin.com/jobs", status: "Ativa" }
         ];
 
         function carregarVagas() {
             const container = document.getElementById('vagasContainer');
-            
             const vagasAtivas = vagasExemplo.filter(v => v.status === 'Ativa');
             
             if (vagasAtivas.length === 0) {
@@ -399,4 +396,4 @@
         carregarVagas();
     </script>
 </body>
-    </html>
+</html>
