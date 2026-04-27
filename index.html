@@ -275,7 +275,7 @@
 
     <!-- IMAGEM DESTAQUE -->
     <div class="imagem-destaque">
-        <img src=" https://raw.githubusercontent.com/GlailtonNascimento/SiteSantanaRH/main/imagem/santanarh.png " alt="SANTANA RH SOLUÇÕES">
+        <img src="https://raw.githubusercontent.com/GlailtonNascimento/SiteSantanaRH/main/imagem/santanarh.png" alt="SANTANA RH SOLUÇÕES">
     </div>
 
     <div class="container">
@@ -342,7 +342,7 @@
     </div>
 
     <script>
-        // Contador de visitas
+        // Contador de visitas (localStorage)
         if (localStorage.getItem('visitasSantanaRH')) {
             let visitas = parseInt(localStorage.getItem('visitasSantanaRH')) + 1;
             localStorage.setItem('visitasSantanaRH', visitas);
@@ -352,7 +352,7 @@
             document.getElementById('contador').innerText = 1;
         }
 
-        // Vagas (integração futura com Google Sheets)
+        // Vagas (exemplo - depois integrar com Google Sheets)
         const vagasExemplo = [
             { titulo: "Coordenador(a) de RH", local: "Recife, PE", tipo: "CLT | Especialista", salario: "A combinar", link_externo: "", status: "Ativa" },
             { titulo: "Analista de Recursos Humanos", local: "Recife, PE", tipo: "CLT | Pleno", salario: "R$ 3.500 - R$ 4.500", link_externo: "", status: "Ativa" },
@@ -381,7 +381,7 @@
                 if (vaga.link_externo && vaga.link_externo !== '') {
                     html += `<a href="${vaga.link_externo}" target="_blank" class="btn-externo">🔗 Ver vaga no portal</a>`;
                 } else {
-                    html += `<button class="btn-candidatar" onclick="candidatar('${vaga.titulo}')">📝 Candidatar-se</button>`;
+                    html += `<button class="btn-candidatar" onclick="candidatar('${vaga.titulo.replace(/'/g, "\\'")}')">📝 Candidatar-se</button>`;
                 }
                 
                 html += `</div>`;
@@ -396,4 +396,4 @@
         carregarVagas();
     </script>
 </body>
-                                         </html>
+</html>
